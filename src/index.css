@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* background-color: #000; */
+  padding: 42px;
+}
+
+#employees {
+  max-height: 700px;
+  overflow-y: scroll;
+}
+
+.Table_header {
+  text-align: end;
+}
+
+#tasks .dx-treelist-rowsview td {
+  vertical-align: middle;
+}
+
+.img,
+.name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.img {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 25px;
+  border: 1px solid lightgray;
+  background-color: #fff;
+}
+
+
+
+.dx-treelist-collapsed :before {
+  margin-top: -16px !important;
+  content: "+" !important;
+}
+
+.dx-treelist-expanded :before {
+  content: "-" !important;
+  margin-top: -16px !important;
+}
+
+.drawer {
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+}
+
+.drawer.expanded {
+  width: 300px;
+}
+
+.bottom-drawer {
+  height: 150px;
+}
+
+
+
+.tabPanel {
+  background-color: #f5f5f5 !important;
+}
+
+.sidebar_drawer {
+  height: 100% !important;
+  width: 250px;
+  background-color: #f5f5f5 !important;
+}
+
+.header-tabs-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
