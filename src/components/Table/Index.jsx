@@ -67,6 +67,7 @@ function TableComponent() {
 
   const onRowPrepared = (e) => {
     if (e.rowType !== "header" && e.node.children.length > 0 && e?.isExpanded) {
+      console.log("test", e.level);
       const divElement = document.createElement("div");
       const divElement2 = document.createElement("div");
       const divElement3 = document.createElement("i");
@@ -75,7 +76,7 @@ function TableComponent() {
       const dynamicHeight = 100;
       divElement.style.height = `${dynamicHeight}%`;
       divElement2.className = "temp2";
-      const dynamicWidth = 1.3;
+      const dynamicWidth = e.level + 1;
       divElement2.style.width = `${dynamicWidth}%`;
       const secondEle = e.rowElement.querySelector("td:nth-child(1)");
 
