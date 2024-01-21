@@ -65,6 +65,40 @@ function TableComponent() {
     [sourceTableData]
   );
 
+  const onRowPrepared = (e) => {
+    if (e.rowType !== "header" && e.node.children.length > 0 && e?.isExpanded) {
+      const divElement = document.createElement("div");
+      const divElement2 = document.createElement("div");
+      const divElement3 = document.createElement("i");
+      divElement3.className = "fa-solid fa-bars drag_icon";
+      divElement.className = "temp";
+      const dynamicHeight = 100;
+      divElement.style.height = `${dynamicHeight}%`;
+      divElement2.className = "temp2";
+      const dynamicWidth = 1.3;
+      divElement2.style.width = `${dynamicWidth}%`;
+      const secondEle = e.rowElement.querySelector("td:nth-child(1)");
+
+      if (secondEle) {
+        secondEle.appendChild(divElement);
+        secondEle.appendChild(divElement2);
+      }
+    } else if (e.rowType !== "header") {
+      setTimeout(() => {
+        const divElement3 = document.createElement("i");
+        const contentEle = document.createElement("span");
+        const firstTD = e.rowElement.querySelector("td:nth-child(1)");
+        const contentDiv = firstTD.querySelector(".dx-treelist-text-content");
+        divElement3.className = "fa-solid fa-bars drag_icon";
+        const temp = contentDiv.textContent;
+        contentDiv.textContent = "";
+        contentEle.textContent = temp;
+        contentDiv.appendChild(divElement3);
+        contentDiv.appendChild(contentEle);
+      }, 0);
+    }
+  };
+
   return (
     <TreeList
       id="employees"
@@ -74,7 +108,8 @@ function TableComponent() {
       showRowLines={true}
       showBorders={true}
       parentIdExpr="Head_ID"
-      //   columnAutoWidth={true}
+      columnAutoWidth={false}
+      onRowPrepared={(e) => onRowPrepared(e)}
     >
       <Column dataField="Title" caption="Position" />
       <RowDragging
@@ -82,7 +117,7 @@ function TableComponent() {
         onReorder={onReorder}
         allowDropInsideItem={true}
         allowReordering={true}
-        showDragIcons={true}
+        showDragIcons={false}
       />
       <Column dataField="Title" caption="Position" />
       <Column

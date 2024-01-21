@@ -14,7 +14,7 @@ body {
 }
 
 .Table_header {
-  text-align: end;
+  text-align: start;
 }
 
 #tasks .dx-treelist-rowsview td {
@@ -66,19 +66,77 @@ body {
   height: 150px;
 }
 
-
-
-.tabPanel {
-  background-color: #f5f5f5 !important;
+.drag_icon {
+  margin-right: 10px;
 }
 
-.sidebar_drawer {
-  height: 100% !important;
-  width: 250px;
-  background-color: #f5f5f5 !important;
+
+
+
+.Container {
+  display: flex;
 }
+
 
 .header-tabs-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+}
+
+.dx-row-lines {
+  position: relative !important;
+}
+
+.temp {
+  border-left: 2px dotted red;
+  position: absolute;
+  bottom: -50%;
+}
+
+.temp2 {
+  border-top: 2px dotted red;
+  height: 2px;
+  /* background-color: red; */
+  /* width: 1%; */
+  position: absolute;
+  bottom: -51%;
+
+}
+
+.sidebar {
+  height: 200px;
+  min-width: 340px;
+  background-color: pink;
+}
+
+.dx-fieldset,
+.dx-field {
+  width: 100%;
+  height: calc(100% - 60px);
+}
+
+.dx-fieldset-bottom,
+.dx-field-bottom {
+  width: 100%;
+  height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+#gridContainer {
+  height: 300px;
+  margin-left: 10px;
+  transform: translate(0px, 0px) !important;
+}
+
+#gridContainer_bottom {
+  height: 100px;
+  margin-left: 10px;
+
+}
+
+#grid {
+  border: 1px solid black;
 }
